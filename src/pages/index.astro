@@ -18,6 +18,78 @@ const metadata = {
 };
 ---
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+  .slider {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 40px;
+    border-radius: 30px;
+  }
+
+  .slides {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 0;
+    transition: all 0.5s linear;
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  @supports (object-fit: cover) {
+    .slide img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      max-height: 50vh;
+    }
+  }
+
+  .slide img {
+    width: 100%;
+  }
+
+  .puntos {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .punto {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgb(125, 138, 255);
+    margin-left: 2px;
+    margin-right: 2px;
+    cursor: pointer;
+  }
+
+  .punto.curr {
+    width: 32px;
+    border-radius: 5px;
+  }
+
+  .move {
+    width: 100%;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+</style>
+
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
@@ -34,6 +106,32 @@ const metadata = {
     ]}
     image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
   >
+    <Fragment slot="title">
+      <div class="slider">
+        <div class="slides">
+          <div class="move"></div>
+          <div class="slide">
+            <img src="/src/assets/images/1709575.webp" alt="Image 1" />
+          </div>
+          <div class="slide">
+            <img src="/src/assets/images/4893418.webp" alt="Image 2" />
+          </div>
+          <div class="slide">
+            <img src="/src/assets/images/6173650.webp" alt="Image 3" />
+          </div>
+          <div class="slide">
+            <img src="/src/assets/images/6781425.webp" alt="Image 4" />
+          </div>
+        </div>
+        <div class="puntos">
+          <div class="punto curr" data-id="0"></div>
+          <div class="punto" data-id="1"></div>
+          <div class="punto" data-id="2"></div>
+          <div class="punto" data-id="3"></div>
+        </div>
+      </div>
+    </Fragment>
+
     <Fragment slot="title">
       Free template for <span class="hidden xl:inline">creating websites with</span>
       <span class="text-accent dark:text-white highlight"> Astro 4.0</span> + Tailwind CSS
@@ -397,3 +495,79 @@ const metadata = {
     </Fragment>
   </CallToAction>
 </Layout>
+
+<script type="module" async is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    var marginI = 0;
+    var marginD = -(100 * $('.slide').length - 100);
+    var initialX = 0;
+    var initialMargin;
+    var mouseDraggedEnough = false; // Variable para rastrear si el mouse se ha arrastrado lo suficiente
+    var direction;
+
+    $('.punto').on('click', function () {
+      let marg = -(100 * parseInt($(this).attr('data-id')));
+      $('.slides').css('margin-left', marg + '%');
+      $('.punto').removeClass('curr');
+      $(this).addClass('curr');
+    });
+
+    function startDrag(e) {
+      console.log('StartDrag');
+      initialX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+      initialMargin = parseInt($('.slides').css('margin-left')) || 0;
+      mouseDraggedEnough = false; // Reiniciar la variable al inicio del arrastre
+    }
+
+    function moveDrag(e) {
+      if (initialX !== 0) {
+        var currentX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+        var deltaX = currentX - initialX;
+        var newMargin = initialMargin + deltaX;
+
+        direction = deltaX > 0 ? 'derecha' : 'izquierda';
+
+        if (!mouseDraggedEnough) {
+          if (newMargin <= 0 && newMargin >= marginD) $('.slides').css('margin-left', newMargin + 'px');
+          if (Math.abs(deltaX) > 150 && !mouseDraggedEnough) {
+            tuFuncionEjecutar(direction);
+            mouseDraggedEnough = true;
+            $(document).off('mousemove touchmove');
+          }
+        }
+      }
+    }
+
+    function endDrag(e) {
+      console.log('EndDrag');
+      initialX = 0;
+      $(document).on('mousemove touchmove', moveDrag); // Reanudar el evento en caso de necesitarlo
+    }
+
+    $('.slides').on('mousedown touchstart', startDrag);
+    $('.move').on('mousemove touchmove', moveDrag);
+    $('.move').on('mouseup touchend', endDrag);
+
+    function tuFuncionEjecutar(direccion) {
+      if (direccion == 'izquierda') {
+        if (marginI != marginD) {
+          marginI = marginI - 100;
+          $('.slides').css('margin-left', marginI + '%');
+          let cr = -(marginI / 100);
+          console.log('aa', cr);
+          $('.punto').removeClass('curr');
+          $('.punto[data-id=' + cr + ']').addClass('curr');
+        }
+      } else {
+        if (marginI != 0) {
+          marginI = marginI + 100;
+          $('.slides').css('margin-left', marginI + '%');
+          let cr = -(marginI / 100);
+          console.log('aa', cr);
+          $('.punto').removeClass('curr');
+          $('.punto[data-id=' + cr + ']').addClass('curr');
+        }
+      }
+    }
+  });
+</script>

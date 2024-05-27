@@ -25,6 +25,7 @@
     "astro": "^4.8.3",
     "astro-embed": "^0.7.2",
     "astro-icon": "^1.1.0",
+    "jquery": "^3.7.1",
     "limax": "4.1.0",
     "lodash.merge": "^4.6.2",
     "unpic": "^3.18.0"
@@ -39,6 +40,7 @@
     "@playform/compress": "0.0.4",
     "@tailwindcss/typography": "^0.5.13",
     "@types/eslint__js": "^8.42.3",
+    "@types/jquery": "^3.5.30",
     "@types/js-yaml": "^4.0.9",
     "@types/lodash.merge": "^4.6.9",
     "@typescript-eslint/eslint-plugin": "^7.9.0",
