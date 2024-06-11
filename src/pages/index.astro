@@ -93,19 +93,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'Learn more', href: '#features' },
-    ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
-  >
+  <Hero>
     <Fragment slot="title">
       <div class="slider">
         <div class="slides">
@@ -133,24 +121,127 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white highlight"> Astro 4.0</span> + Tailwind CSS
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 4.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+      <section class="sections">
+        <div class="top_menu">
+          <div class="men curr"><div class="menu_sec" data-id="1">Menu 1</div></div>
+          <div class="men"><div class="menu_sec" data-id="2">Menu 2</div></div>
+          <div class="men"><div class="menu_sec" data-id="3">Menu 3</div></div>
+          <div class="men"><div class="menu_sec" data-id="4">Menu 4</div></div>
+          <div class="men"><div class="menu_sec" data-id="5">Menu 5</div></div>
+          <div class="men"><div class="menu_sec" data-id="6">Menu 6</div></div>
+          <div class="men"><div class="menu_sec" data-id="7">Menu 7</div></div>
+          <div class="men"><div class="menu_sec" data-id="8">Menu 8</div></div>
+        </div>
+        <div class="contenedor">
+          <div data-id="1" class="cont curr">
+            <div class="cont2">
+              <div class="lf">
+                <img src="/src/assets/images/uno.jpg" />
+              </div>
+              <div class="rg">
+                <div class="titulo">Contenido</div>
+                <div class="txt">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque finibus consequat risus non
+                  tincidunt. Pellentesque egestas magna eu quam pulvinar, eget finibus quam blandit. Donec non ultrices
+                  neque.
+                </div>
+                <button class="boton">Pellentesque egestas</button>
+                <div class="fila">
+                  <div class="col">
+                    <a href="#">
+                      <img class="u" src="/src/assets/images/uno.jpg" />
+                      <img class="d" src="/src/assets/images/dos.jpg" />
+                    </a>
+                    <div class="tx">Pellentesque finibus consequat risus</div>
+                    <div class="val">CLP 300.000 + IVA</div>
+                  </div>
+                  <div class="col">
+                    <a href="#">
+                      <img class="u" src="/src/assets/images/uno.jpg" />
+                      <img class="d" src="/src/assets/images/dos.jpg" />
+                    </a>
+                    <div class="tx">Pellentesque finibus consequat risus</div>
+                    <div class="val">CLP 300.000 + IVA</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div data-id="2" class="cont">
+            <div class="cont2">
+              <div class="lf">
+                <img src="/src/assets/images/tres.jpg" />
+              </div>
+              <div class="rg">
+                <div class="titulo">Contenido 2</div>
+                <div class="txt">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque finibus consequat risus non
+                    tincidunt. Pellentesque egestas magna eu quam pulvinar, eget finibus quam blandit. Donec non
+                    ultrices neque.
+                  </p>
+                </div>
+                <button class="boton">Pellentesque egestas</button>
+                <div class="fila">
+                  <div class="col">
+                    <a href="#">
+                      <img class="u" src="/src/assets/images/uno.jpg" />
+                      <img class="d" src="/src/assets/images/dos.jpg" />
+                    </a>
+                    <div class="tx">Pellentesque finibus consequat risus</div>
+                    <div class="val">CLP 300.000 + IVA</div>
+                  </div>
+                  <div class="col">
+                    <a href="#">
+                      <img class="u" src="/src/assets/images/uno.jpg" />
+                      <img class="d" src="/src/assets/images/dos.jpg" />
+                    </a>
+                    <div class="tx">Pellentesque finibus consequat risus</div>
+                    <div class="val">CLP 300.000 + IVA</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div data-id="3" class="cont">
+            <div class="cont2">
+              <div class="lf">
+                <img src="/src/assets/images/dos.jpg" />
+              </div>
+              <div class="rg">
+                <div class="titulo">Contenido 3</div>
+                <div class="txt">
+                  Cras faucibus libero nec nibh cursus vulputate. Donec eu velit quis neque varius feugiat. Maecenas
+                  consequat mauris vitae risus elementum maximus. In accumsan felis elit, a finibus erat pharetra eu.
+                  Cras vel dui ac turpis finibus efficitur. Donec blandit commodo molestie. Nam a velit vitae nibh porta
+                  eleifend
+                </div>
+                <button class="boton">Pellentesque egestas</button>
+                <div class="fila">
+                  <div class="col">
+                    <a href="#">
+                      <img class="u" src="/src/assets/images/uno.jpg" />
+                      <img class="d" src="/src/assets/images/dos.jpg" />
+                    </a>
+                    <div class="tx">In accumsan felis elit, a finibus erat pharetra eu. Cras vel dui</div>
+                    <div class="val">CLP 300.000 + IVA</div>
+                  </div>
+                  <div class="col">
+                    <a href="#">
+                      <img class="u" src="/src/assets/images/uno.jpg" />
+                      <img class="d" src="/src/assets/images/dos.jpg" />
+                    </a>
+                    <div class="tx">In accumsan felis elit, a finibus erat pharetra eu. Cras vel dui</div>
+                    <div class="val">CLP 300.000 + IVA</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </Fragment>
   </Hero>
-
-  <!-- Note Widget ******************* -->
-
-  <Note />
 
   <!-- Features Widget *************** -->
 
@@ -569,5 +660,28 @@ const metadata = {
         }
       }
     }
+
+    function adjustContainerHeight() {
+      const activeTab = $('.cont.curr');
+      const container = $('.contenedor');
+      container.css('height', activeTab.outerHeight());
+    }
+
+    $('.menu_sec').on('click', function () {
+      $('.men').removeClass('curr');
+      $(this).closest('.men').addClass('curr');
+      let id = $(this).attr('data-id');
+      $('.cont').fadeOut(500);
+      adjustContainerHeight();
+      $('.cont[data-id=' + id + ']').fadeIn(500, function () {
+        $(this).addClass('curr');
+      });
+    });
+
+    adjustContainerHeight();
+
+    $(window).on('resize', function () {
+      adjustContainerHeight();
+    });
   });
 </script>

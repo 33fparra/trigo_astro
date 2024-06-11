@@ -1,0 +1,184 @@
+a {
+    text-decoration: none;
+}
+
+.sections {
+    width: 100%;
+}
+
+.top_menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.men {
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 2px solid #e1e1e1;
+    margin-bottom: 10px;
+    flex-grow: 1;
+    max-width: 20%;
+    text-align: center;
+    letter-spacing: normal !important;
+}
+
+.men.curr {
+    border-bottom: 7px solid #123c85;
+}
+
+.menu_sec {
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.5s linear;
+    font-size: 16px;
+}
+
+.men.curr .menu_sec {
+    color: #123c85;
+}
+
+.contenedor {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.cont {
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    position: absolute;
+}
+
+.cont2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.cont.curr {
+    display: block;
+}
+
+.cont .lf {
+    width: 50%;
+}
+
+.cont .lf img {
+    width: 100%;
+    height: 100%;
+}
+
+.cont .rg {
+    width: 50%;
+    padding-left: 20px;
+}
+
+.cont .rg .titulo {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.cont .rg .txt {
+    font-size: 12px;
+    letter-spacing: normal !important;
+    line-height: 18px;
+    padding-top: 15px;
+}
+
+.boton {
+    width: max-content;
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    border: none;
+    background-color: #123c85;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: normal !important;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.fila {
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.fila .col {
+    width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+}
+
+.fila .col img {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.fila .col img.d {
+    display: none;
+}
+
+.fila .col:hover img.u {
+    display: none;
+}
+
+.fila .col:hover img.d {
+    display: block;
+}
+
+.fila .col .tx {
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: normal !important;
+    line-height: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.fila .col .val {
+    background-color: #123c85;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: normal !important;
+    padding: 6px;
+    width: max-content;
+}
+
+@media (max-width: 768px) {
+    .cont .lf {
+        width: 100%;
+    }
+
+    .cont .rg {
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .fila .col {
+        width: 100%;
+    }
+
+    .men {
+        max-width: 50%;
+        height: 30px;
+    }
+
+    .boton {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .cont .rg {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
